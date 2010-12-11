@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "nested_scaffold"
   gem.homepage = "http://github.com/amatsuda/nested_scaffold"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = 'Nested scaffold generator for Rails 3'
+  gem.description = 'Nested scaffold generator for Rails 3'
   gem.email = "ronnie@dio.jp"
   gem.authors = ["Akira Matsuda"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

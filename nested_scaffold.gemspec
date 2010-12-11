@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{nested_scaffold}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Akira Matsuda"]
@@ -47,7 +47,8 @@ Gem::Specification.new do |s|
     "lib/generators/test_unit/helper_generator.rb",
     "lib/generators/test_unit/model_generator.rb",
     "lib/generators/test_unit/scaffold_generator.rb",
-    "lib/generators/test_unit/templates/functional_test.rb"
+    "lib/generators/test_unit/templates/functional_test.rb",
+    "nested_scaffold.gemspec"
   ]
   s.homepage = %q{http://github.com/amatsuda/nested_scaffold}
   s.licenses = ["MIT"]

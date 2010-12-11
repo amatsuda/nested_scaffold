@@ -1,5 +1,6 @@
 require 'rails/generators/rails/scaffold_controller/scaffold_controller_generator'
 require File.join(File.dirname(__FILE__), '../erb/erb_generator')
+require File.join(File.dirname(__FILE__), '../haml/haml_generator')
 require File.join(File.dirname(__FILE__), '../helper/helper_generator')
 require File.join(File.dirname(__FILE__), '../test_unit/scaffold_generator')
 require File.join(File.dirname(__FILE__), '../base')

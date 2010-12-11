@@ -1,0 +1,11 @@
+%p#notice= notice
+
+<% for attribute in attributes -%>
+%p
+  %b <%= attribute.human_name %>:
+  = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+
+= link_to 'Edit', edit_<%= nested_parent_name %>_<%= singular_table_name %>_path(@<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>)
+\|
+= link_to 'Back', <%= nested_parent_name %>_<%= index_helper %>_path(@<%= singular_table_name %>.<%= nested_parent_name %>)

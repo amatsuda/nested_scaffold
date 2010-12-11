@@ -1,0 +1,5 @@
+%h1 New <%= singular_table_name %>
+
+= render 'form'
+
+= link_to 'Back', <%= nested_parent_name %>_<%= index_helper %>_path(@<%= singular_table_name %>.<%= nested_parent_name %>)

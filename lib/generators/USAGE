@@ -1,0 +1,10 @@
+Description:
+    Generats nested scaffold
+
+Example:
+    rails g nested_scaffold group/user name:string age:integer
+
+    This will create:
+        user {model, controller, helper, views, tests}
+        nested resource route
+        Group.has_many :user association

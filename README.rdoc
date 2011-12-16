@@ -23,7 +23,7 @@ Then bundle:
 
 == Usage
 
-  % rails generate scaffold PARENT_NAME/NAME [field:type field:type] [options]
+  % rails generate nested_scaffold PARENT_NAME/NAME [field:type field:type] [options]
 
 (Expects PARENT model to exist in advance)
 

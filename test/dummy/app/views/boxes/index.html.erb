@@ -1,0 +1,25 @@
+<h1>Listing boxes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boxes.each do |box| %>
+  <tr>
+    <td><%= box.name %></td>
+    <td><%= box.notes %></td>
+    <td><%= link_to 'Show', box %></td>
+    <td><%= link_to 'Edit', edit_box_path(box) %></td>
+    <td><%= link_to 'Destroy', box, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Box', new_box_path %>

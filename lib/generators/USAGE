@@ -1,5 +1,5 @@
 Description:
-    Generats nested scaffold
+    Generates nested scaffold
 
 Example:
     rails g nested_scaffold group/user name:string age:integer

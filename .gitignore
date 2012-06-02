@@ -7,3 +7,5 @@ doc
 log
 
 *.sqlite3
+
+.project

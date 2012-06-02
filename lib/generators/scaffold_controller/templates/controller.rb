@@ -2,7 +2,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>.json
   def index
-    <%= "@#{plural_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}]).#{plural_name}" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{plural_name} = @#{nested_parent_name}.#{plural_name}" %>
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +14,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>/1
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>/1.json
   def show
-    <%= "@#{singular_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}]).#{plural_name}.find(params[:id])" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>/new
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>/new.json
   def new
-    <%= "@#{singular_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}]).#{plural_name}.build" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build" %>
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,15 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>/1/edit
   def edit
-    <%= "@#{singular_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}]).#{plural_name}.find(params[:id])" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
   end
 
   # POST <%= plural_nested_parent_name %>/1/<%= plural_name %>
   # POST <%= plural_nested_parent_name %>/1/<%= plural_name %>.json
   def create
-    <%= "@#{singular_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}]).#{plural_name}.build(params[:#{singular_name}])" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build(params[:#{singular_name}])" %>
 
     respond_to do |format|
       if @<%= singular_name %>.save
@@ -56,7 +61,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   # PUT <%= plural_nested_parent_name %>/1/<%= plural_name %>/1
   # PUT <%= plural_nested_parent_name %>/1/<%= plural_name %>/1.json
   def update
-    <%= "@#{singular_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}]).#{plural_name}.find(params[:id])" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
 
     respond_to do |format|
       if @<%= singular_name %>.update_attributes(params[:<%= singular_name %>])
@@ -72,8 +78,8 @@ class <%= controller_class_name %>Controller < ApplicationController
   # DELETE <%= plural_nested_parent_name %>/1/<%= plural_name %>/1
   # DELETE <%= plural_nested_parent_name %>/1/<%= plural_name %>/1.json
   def destroy
-    <%= "#{nested_parent_name} = #{nested_parent_class_name}.find(params[:#{nested_parent_id}])" %>
-    <%= "@#{singular_name} = #{nested_parent_name}.#{plural_name}.find(params[:id])" %>
+    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
     @<%= singular_name %>.destroy
 
     respond_to do |format|

@@ -15,10 +15,12 @@ module NestedScaffold
       hook_for :assets, :in => :rails do |source, generator|
         source.invoke generator, [ source.file_name.pluralize ]
       end
-      
+
       # override ModelGenerator
       hook_for :orm, :required => true
 
+      # replacing hook for adding config/routes
+      remove_hook_for :resource_route
       # override
       def add_resource_route
         return if options[:actions].present?

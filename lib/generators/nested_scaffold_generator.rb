@@ -2,7 +2,6 @@ require 'rails/generators/rails/scaffold/scaffold_generator'
 require File.join(File.dirname(__FILE__), 'base')
 require File.join(File.dirname(__FILE__), 'scaffold_controller/scaffold_controller_generator')
 require File.join(File.dirname(__FILE__), 'active_record/active_record_generator')
-require File.join(File.dirname(__FILE__), 'stylesheets/stylesheets_generator')
 
 module NestedScaffold
   module Generators
@@ -11,8 +10,12 @@ module NestedScaffold
 
       # override ScaffoldGenerator
       hook_for :scaffold_controller, :required => true
-      # override ScaffoldGenerator
-      hook_for :stylesheets
+
+      # Ensure assets get created with the correct name
+      hook_for :assets, :in => :rails do |source, generator|
+        source.invoke generator, [ source.file_name.pluralize ]
+      end
+      
       # override ModelGenerator
       hook_for :orm, :required => true
 

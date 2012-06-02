@@ -1,0 +1,3 @@
+== This is a Dummy Rails app for testing Nested Scaffold
+
+If the nested scaffold is generated properly, you should be able to fire up rails and run this application in the usual way.

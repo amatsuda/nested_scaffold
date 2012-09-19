@@ -2,6 +2,7 @@ require 'rails/generators/rails/scaffold/scaffold_generator'
 require File.join(File.dirname(__FILE__), 'base')
 require File.join(File.dirname(__FILE__), 'scaffold_controller/scaffold_controller_generator')
 require File.join(File.dirname(__FILE__), 'active_record/active_record_generator')
+require File.join(File.dirname(__FILE__), 'mongoid/mongoid_generator')
 
 module NestedScaffold
   module Generators

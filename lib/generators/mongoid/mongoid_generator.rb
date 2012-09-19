@@ -12,10 +12,10 @@ module NestedScaffold
         super
         
         association = "#{nested_parent_name}:references"
-
 	args << association unless args.include? association
-        args[0].gsub!("#{nested_parent_name}/","")
-	invoke "mongoid:model", args, *options
+        args_for_mongoid = args.join(" ")
+        args_for_mongoid.gsub!("#{nested_parent_name}/","") if args[0]
+	generate "mongoid:model", "#{args_for_mongoid} #{options[0].join(" ") if options[0]}"
       end
 
       # add embeds_many_association to parent model

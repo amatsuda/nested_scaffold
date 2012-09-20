@@ -6,6 +6,8 @@ pkg/*
 doc
 log
 
+*~
+
 *.sqlite3
 
 .project

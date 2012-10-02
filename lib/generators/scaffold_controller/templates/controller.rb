@@ -83,7 +83,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     @<%= singular_name %>.destroy
 
     respond_to do |format|
-      format.html { redirect_to <%= nested_parent_name %>_<%= index_helper %>_url(<%= nested_parent_name %>) }
+      format.html { redirect_to <%= nested_parent_name %>_<%= index_helper %>_url(@<%= nested_parent_name %>) }
       format.json { head :ok }
     end
   end

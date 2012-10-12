@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', [@<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>] %>
+= link_to 'Show', [@<%= singular_table_name %>.<%= nested_parent_name %>, @<%= singular_table_name %>]
 \|
 = link_to 'Back', <%= nested_parent_name %>_<%= index_helper %>_path(@<%= singular_table_name %>.<%= nested_parent_name %>)

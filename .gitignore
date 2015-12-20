@@ -5,7 +5,8 @@ pkg/*
 
 doc
 log
-
+tmp/
+test/dummy/tmp
 *.sqlite3
 
 .project

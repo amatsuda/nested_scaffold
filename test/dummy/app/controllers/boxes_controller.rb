@@ -40,7 +40,7 @@ class BoxesController < ApplicationController
   # POST /boxes
   # POST /boxes.json
   def create
-    @box = Box.new(params[:box])
+    @box = Box.new(box_params)
 
     respond_to do |format|
       if @box.save
@@ -59,7 +59,7 @@ class BoxesController < ApplicationController
     @box = Box.find(params[:id])
 
     respond_to do |format|
-      if @box.update_attributes(params[:box])
+      if @box.update_attributes(box_params)
         format.html { redirect_to @box, notice: 'Box was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,4 +80,11 @@ class BoxesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def box_params
+    params.require(:box).permit(:name, :notes)
+  end
+
 end

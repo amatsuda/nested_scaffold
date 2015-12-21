@@ -1,6 +1,6 @@
 = nested_scaffold
 
-A scaffold command that generates a set of perfectly working nested resource for Rails 3.
+A scaffold command that generates a set of perfectly working nested resource for Rails 4.2
 
 == Features
 

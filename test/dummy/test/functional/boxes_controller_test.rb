@@ -1,5 +1,4 @@
 require 'test_helper'
-
 class BoxesControllerTest < ActionController::TestCase
   setup do
     @box = boxes(:one)

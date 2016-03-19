@@ -28,7 +28,7 @@ module NestedScaffold
       # add has_many_association to parent model
       def add_association
         if File.exist?(parent_file = File.join('app/models', "#{nested_parent_name}.rb"))
-          inject_into_file parent_file, "  has_many :#{table_name}\n", :after => " < ActiveRecord::Base\n"
+          inject_into_file parent_file, "  has_many :#{table_name}\n", :after => / < (ActiveRecord::Base|ApplicationRecord)\n/
         end
       end
 

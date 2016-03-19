@@ -21,7 +21,7 @@ module NestedScaffold
         attributes.delete_if {|a| (a.name == nested_parent_id) && (a.type.to_s == 'integer')}
         unless attributes.map {|a| [a.name, a.type.to_s]}.include? [nested_parent_name, 'references']
           #DIRTY HACK add 'references' attribute
-          attributes.insert 0, Rails::Generators::GeneratedAttribute.new(nested_parent_name, 'references')
+          attributes.insert 0, Rails::Generators::GeneratedAttribute.new(nested_parent_name, :references)
         end
       end
 

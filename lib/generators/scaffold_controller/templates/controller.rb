@@ -1,9 +1,9 @@
 class <%= controller_class_name %>Controller < ApplicationController
+  before_action :set_<%= plural_name %>
   before_action :set_<%= singular_table_name %>, only: [:show, :edit, :update, :destroy]
 
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>
   def index
-    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
     <%= "@#{plural_name} = @#{nested_parent_name}.#{plural_name}" %>
   end
 
@@ -13,7 +13,6 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # GET <%= plural_nested_parent_name %>/1/<%= plural_name %>/new
   def new
-    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
     <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build" %>
   end
 
@@ -23,7 +22,6 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # POST <%= plural_nested_parent_name %>/1/<%= plural_name %>
   def create
-    @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
     <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build(params[:#{singular_name}])" %>
 
     if @<%= singular_name %>.save
@@ -51,8 +49,11 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_<%= singular_table_name %>
+    def set_<%= plural_name %>
       @<%= nested_parent_name %> = <%= orm_class.find(nested_parent_class_name, "params[:#{nested_parent_id}]") %>
+    end
+
+    def set_<%= singular_table_name %>
       <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
     end
 end

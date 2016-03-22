@@ -25,18 +25,18 @@ class <%= controller_class_name %>Controller < ApplicationController
     <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build(params[:#{singular_name}])" %>
 
     if @<%= singular_name %>.save
-      redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], :notice => '<%= human_name %> was successfully created.')
+      redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], notice: '<%= human_name %> was successfully created.')
     else
-      render :action => "new"
+      render action: 'new'
     end
   end
 
   # PUT <%= plural_nested_parent_name %>/1/<%= plural_name %>/1
   def update
     if @<%= singular_name %>.update_attributes(params[:<%= singular_name %>])
-      redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], :notice => '<%= human_name %> was successfully updated.')
+      redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], notice: '<%= human_name %> was successfully updated.')
     else
-      render :action => "edit"
+      render action: 'edit'
     end
   end
 

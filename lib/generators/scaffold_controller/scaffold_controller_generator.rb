@@ -14,10 +14,10 @@ module NestedScaffold
 
       # override ScaffoldControllerGenerator
       hook_for :template_engine
-      hook_for :test_framework, :in => 'nested_scaffold:scaffold'
+      hook_for :test_framework, in: 'nested_scaffold:scaffold'
 
       # override ScaffoldControllerGenerator
-      hook_for :helper, :as => :scaffold do |invoked|
+      hook_for :helper, as: :scaffold do |invoked|
         invoke invoked, [ controller_name ]
       end
     end

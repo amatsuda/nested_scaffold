@@ -9,15 +9,15 @@ module NestedScaffold
       include ::NestedScaffold::Base
 
       # override ScaffoldGenerator
-      hook_for :scaffold_controller, :required => true
+      hook_for :scaffold_controller, required: true
 
       # Ensure assets get created with the correct name
-      hook_for :assets, :in => :rails do |source, generator|
+      hook_for :assets, in: :rails do |source, generator|
         source.invoke generator, [ source.file_name.pluralize ]
       end
 
       # override ModelGenerator
-      hook_for :orm, :required => true
+      hook_for :orm, required: true
 
       # replacing hook for adding config/routes
       remove_hook_for :resource_route

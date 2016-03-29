@@ -28,6 +28,8 @@ module NestedScaffold
         route_config << "    resources :#{file_name.pluralize}\n"
         route_config << "  end"
         route route_config
+
+        gsub_file 'config/routes.rb', / *resources :#{plural_nested_parent_name}\n/, ''
       end
     end
   end

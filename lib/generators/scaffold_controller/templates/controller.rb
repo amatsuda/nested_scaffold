@@ -22,7 +22,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # POST <%= plural_nested_parent_name %>/1/<%= plural_name %>
   def create
-    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build(params[:#{singular_name}])" %>
+    <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.build(#{singular_name}_params)" %>
 
     if @<%= singular_name %>.save
       redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], notice: '<%= human_name %> was successfully created.')
@@ -33,7 +33,7 @@ class <%= controller_class_name %>Controller < ApplicationController
 
   # PUT <%= plural_nested_parent_name %>/1/<%= plural_name %>/1
   def update
-    if @<%= singular_name %>.update_attributes(params[:<%= singular_name %>])
+    if @<%= singular_name %>.update_attributes(<%= singular_name %>_params)
       redirect_to([@<%= singular_name %>.<%= nested_parent_name %>, @<%= singular_name %>], notice: '<%= human_name %> was successfully updated.')
     else
       render action: 'edit'
@@ -55,5 +55,14 @@ class <%= controller_class_name %>Controller < ApplicationController
 
     def set_<%= singular_table_name %>
       <%= "@#{singular_name} = @#{nested_parent_name}.#{plural_name}.find(params[:id])" %>
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def <%= "#{singular_table_name}_params" %>
+      <%- if attributes_names.empty? -%>
+      params.fetch(:<%= singular_table_name %>, {})
+      <%- else -%>
+      params.require(:<%= singular_table_name %>).permit(<%= attributes_names.map { |name| ":#{name}" }.join(', ') %>)
+      <%- end -%>
     end
 end

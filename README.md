@@ -1,57 +1,64 @@
-= nested_scaffold
+# nested_scaffold
 
-A scaffold command that generates a set of perfectly working nested resource for Rails 4.2 and 5
+A scaffold command that generates a set of perfectly working nested resource for Rails 4.2 and 5.
 
-== Features
+## Features
 
 * Generates a nested child resource with a single command
 * Generates a beautifully working bunch of code
 * Automatically generates the appropriate model associations for ActiveRecord
 * Haml ready
 
-== Rails versions
+## Rails versions
 
 4.2, 5.0
 
-== Install
+## Install
 
 Put this line in your Gemfile:
-  gem 'nested_scaffold'
 
-Then bundle:
-  % bundle
+```ruby
+gem 'nested_scaffold'
+```
 
-== Usage
+Then bundle.
 
-  % rails generate nested_scaffold PARENT_NAME/NAME [field:type field:type] [options]
+## Usage
+
+```
+% rails generate nested_scaffold PARENT_NAME/NAME [field:type field:type] [options]
+```
 
 (Expects PARENT model to exist in advance)
 
-== Example
+## Example
 
 While "Post" model exists,
 
-  % rails g nested_scaffold post/comment name:string content:text
+```
+% rails g nested_scaffold post/comment name:string content:text
+```
 
 This will create:
-    comment {model, controller, helper, views, tests}
-    nested resource route
-    Post.has_many :comments association
 
-== Options
+* comment {model, controller, helper, views, tests}
+* nested resource route
+* Post.has_many :comments association
+
+## Options
 
 Basically same as the original scaffold.
 
-== TODO / known issues
+## TODO / known issues
 
 * namespace (who needs?)
 * third party orms
 * fixture replacements
 
-== Contributing to nested_scaffold
+## Contributing to nested_scaffold
 
 Pull requests are welcome on GitHub at https://github.com/amatsuda/nested_scaffold
 
-== Copyright
+## Copyright
 
 Copyright (c) 2010 Akira Matsuda. The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

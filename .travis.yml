@@ -4,3 +4,7 @@ sudo: false
 
 rvm:
   - 2.3.0
+
+gemfile:
+  - gemfiles/Gemfile-rails.4.2.x
+  - gemfiles/Gemfile-rails.5.0.0.beta3

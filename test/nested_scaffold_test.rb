@@ -43,10 +43,6 @@ class NestedScaffoldTest < Rails::Generators::TestCase
 
   end
 
-  test "truth" do
-    assert_kind_of Module, NestedScaffold::Generators::NestedScaffoldGenerator
-  end
-
 private
   def prepare_dummy_files
     FileUtils.cd(File.expand_path("../tmp", File.dirname(__FILE__))) do

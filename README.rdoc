@@ -45,7 +45,6 @@ Basically same as the original scaffold.
 == TODO / known issues
 
 * namespace (who needs?)
-* RSpec
 * third party orms
 * fixture replacements
 

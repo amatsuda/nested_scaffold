@@ -36,7 +36,7 @@ class NestedScaffoldTest < Rails::Generators::TestCase
 
 
     assert_file "app/models/#{Detail}.rb"
-    #assert_file "test/fixtures/#{Detail}s.yml"
+    assert_file "test/fixtures/#{Detail}s.yml"
     assert_file "test/models/#{Detail}_test.rb"
     assert_migration "db/migrate/create_#{Detail}s.rb"
 

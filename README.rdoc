@@ -54,5 +54,4 @@ Pull requests are welcome on GitHub at https://github.com/amatsuda/nested_scaffo
 
 == Copyright
 
-Copyright (c) 2010 Akira Matsuda. See LICENSE.txt for
-further details.
+Copyright (c) 2010 Akira Matsuda. The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).

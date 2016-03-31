@@ -14,7 +14,6 @@ class NestedScaffoldTest < Rails::Generators::TestCase
   Detail = "sweet"
 
   test "Assert all files are properly created" do
-    res = "#{Master}/#{Detail}"
     out = run_generator %w(#{res}/sweet name:string quantity:integer notes:text --orm=active_record --test-framework=test_unit --migration=true --fixture)
     puts "\nOutput from generator:\n" + out
 

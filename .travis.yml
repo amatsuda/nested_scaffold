@@ -7,4 +7,4 @@ rvm:
 
 gemfile:
   - gemfiles/Gemfile-rails.4.2.x
-  - gemfiles/Gemfile-rails.5.0.0.beta3
+  - gemfiles/Gemfile-rails.5.0.x

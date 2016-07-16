@@ -17,7 +17,7 @@
 <% end -%>
     <td><%%= link_to 'Show', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>] %></td>
     <td><%%= link_to 'Edit', edit_<%= nested_parent_name %>_<%= singular_table_name %>_path(<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>) %></td>
-    <td><%%= link_to 'Destroy', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>], data: { :confirm => 'Are you sure?' }, :method => :delete %></td>
+    <td><%%= link_to 'Destroy', [<%= singular_table_name %>.<%= nested_parent_name %>, <%= singular_table_name %>], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <%% end %>
 </table>

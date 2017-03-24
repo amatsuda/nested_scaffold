@@ -4,7 +4,7 @@ sudo: false
 
 rvm:
   - 2.3.3
-  - 2.4.0
+  - 2.4.1
 
 gemfile:
   - gemfiles/Gemfile-rails.4.2.x
@@ -12,5 +12,5 @@ gemfile:
 
 matrix:
   exclude:
-    - rvm: 2.4.0
+    - rvm: 2.4.1
       gemfile: gemfiles/Gemfile-rails.4.2.x

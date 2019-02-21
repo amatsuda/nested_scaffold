@@ -24,9 +24,9 @@ module NestedScaffold
       # override
       def add_resource_route
         return if options[:actions].present?
-        route_config = "resources :#{plural_nested_parent_name} do\n"
-        route_config << "    resources :#{file_name.pluralize}\n"
-        route_config << "  end\n"
+        route_config = "resources :#{plural_nested_parent_name} do\n" \
+                       "  resources :#{file_name.pluralize}\n" \
+                       "end\n"
         route route_config
 
         gsub_file 'config/routes.rb', / *resources :#{plural_nested_parent_name}\n/, ''

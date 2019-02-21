@@ -26,7 +26,7 @@ module NestedScaffold
         return if options[:actions].present?
         route_config = "resources :#{plural_nested_parent_name} do\n"
         route_config << "    resources :#{file_name.pluralize}\n"
-        route_config << "  end"
+        route_config << "  end\n"
         route route_config
 
         gsub_file 'config/routes.rb', / *resources :#{plural_nested_parent_name}\n/, ''

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Nested scaffold generator for Rails'
   spec.description   = 'Nested scaffold generator for Rails'
-  spec.homepage      = 'http://github.com/amatsuda/nested_scaffold'
+  spec.homepage      = 'https://github.com/amatsuda/nested_scaffold'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }

@@ -4,16 +4,13 @@ sudo: false
 
 before_install: gem update bundler --no-document
 
-rvm:
-  - 2.3.4
-  - 2.4.1
-
-gemfile:
-  - gemfiles/Gemfile-rails.4.2.x
-  - gemfiles/Gemfile-rails.5.0.x
-  - gemfiles/Gemfile-rails.5.1.x
-
 matrix:
-  exclude:
-    - rvm: 2.4.1
+  include:
+    - rvm: 2.3.8
       gemfile: gemfiles/Gemfile-rails.4.2.x
+    - rvm: 2.4.5
+      gemfile: gemfiles/Gemfile-rails.5.0.x
+    - rvm: 2.5.3
+      gemfile: gemfiles/Gemfile-rails.5.1.x
+    - rvm: 2.6.1
+      gemfile: gemfiles/Gemfile-rails.5.2.x

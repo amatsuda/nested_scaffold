@@ -11,7 +11,7 @@ A scaffold command that generates a set of perfectly working nested resource for
 
 ## Rails versions
 
-4.2, 5.0, 5.1
+4.2, 5.0, 5.1, 5.2
 
 ## Install
 
